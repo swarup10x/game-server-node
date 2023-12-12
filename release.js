@@ -20,10 +20,9 @@ const host = '0.0.0.0';
 let facts = [];
 
 const options = {
-  key: fs.readFileSync('server.key'), // Replace with your key file path
-  cert: fs.readFileSync('server.crt') // Replace with your certificate file path
-};
-
+  key: fs.readFileSync('/etc/letsencrypt/live/btcmaax.jajabor.dev/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/btcmaax.jajabor.dev/fullchain.pem')
+}
 // Create an HTTPS server
 const server = https.createServer(options, app);
 
