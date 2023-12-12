@@ -36,6 +36,10 @@ setInterval(() => {
   console.log('interval called')
   Object.keys(organizedGames).forEach((game) => {
     organizedGames[game]['min1'].streamEvent()
+    organizedGames[game]['min1'].streamEvent()
+    organizedGames[game]['min3'].streamEvent()
+    organizedGames[game]['min5'].streamEvent()
+    organizedGames[game]['min10'].streamEvent()
   })
 
 }, 1000 * 1);
