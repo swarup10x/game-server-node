@@ -12,10 +12,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const PORT = 3000;
 
+const host = '0.0.0.0'; 
+
 
 let facts = [];
 
-app.listen(PORT, () => {
+app.listen(PORT,host, () => {
   console.log(`Facts Events service listening at http://localhost:${PORT}`);
 });
 
