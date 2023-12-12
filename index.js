@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+
+const fs = require('fs');
 const { organizedGames } = require('./lib/models/states/globals/games');
 const { clients } = require('./lib/models/states/globals/clients');
 
