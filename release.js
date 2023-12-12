@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const https = require('https');
 const { organizedGames } = require('./lib/models/states/globals/games');
 const { clients } = require('./lib/models/states/globals/clients');
 
@@ -17,8 +18,16 @@ const host = '0.0.0.0';
 
 let facts = [];
 
-app.listen(PORT,host, () => {
-  console.log(`Facts Events service listening at http://${host}:${PORT}`);
+const options = {
+  key: fs.readFileSync('server.key'), // Replace with your key file path
+  cert: fs.readFileSync('server.crt') // Replace with your certificate file path
+};
+
+// Create an HTTPS server
+const server = https.createServer(options, app);
+
+server.listen(PORT, host, () => {
+  console.log(`Facts Events service listening at https://${host}:${PORT}`);
 });
 
 
