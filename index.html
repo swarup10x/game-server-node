@@ -1,0 +1,56 @@
+<script>
+// Create an EventSource to listen to the SSE stream
+async function postFactToServer() {
+  const url = 'http://localhost:3001/fact';
+  const data = {
+    info: "Shark teeth are embedded in the gums rather than directly affixed to the jaw, and are constantly replaced throughout life.",
+    source: "https://en.wikipedia.org/wiki/Shark"
+  };
+
+  const requestOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  };
+
+  try {
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
+    
+    // Log the response to the console
+    console.log('Response:', responseData);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+/////////////
+// Call the function to make the POST request
+
+const bets = [
+  // Define your bet objects here
+  // For example:
+  { gameId: 'discs_1', /* other properties */ },
+  { gameId: 'discs_1', /* other properties */ },
+  // Add more bets as needed
+];
+
+fetch('http://localhost:3000/bets', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(bets),
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+
+
+</script>
+
+<button onclick="postFactToServer()">
+  post
+</button>

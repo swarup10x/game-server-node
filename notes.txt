@@ -1,0 +1,21 @@
+function saveGameToDB() {
+        // Logic to save game data to the database
+        var apiUrl = 'http://127.0.0.1:8000/api/gamedata' //TODO: save game
+        //bet = {gameId,userId,gameNumber, betAmount,betChoise,rewarded,rewardedAmount, winningMultiplier};
+        let game= {
+            gameName: 'discs',
+            gameMinutes: '1',
+            gameId: 'discs_min1',
+            result: '1111',
+            startedAt: '1671000000',
+            gameNumber: 0
+        }
+
+        fetch('apiUrl', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ game:game, bets:[] }),
+        })
+    }
