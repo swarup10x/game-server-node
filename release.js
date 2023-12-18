@@ -66,7 +66,7 @@ function runIntervals() {
         intervalId = setInterval(() => {
           crashGame.streamOngoingEvent()
           // console.log("100ms interval");
-        }, 100);
+        }, 300);
 
         setTimeout(() => {
           clearInterval(intervalId);
