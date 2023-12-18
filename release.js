@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const https = require('https');
 const fs = require('fs');
-const { organizedGames } = require('./lib/models/states/globals/games');
+const { organizedGames,crashGame } = require('./lib/models/states/globals/games');
 const { clients } = require('./lib/models/states/globals/clients');
 
 const app = express();
