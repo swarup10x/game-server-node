@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const https = require('https');
 const fs = require('fs');
-const { organizedGames,crashGame } = require('./lib/models/states/globals/games');
+const { organizedGames, crashGame } = require('./lib/models/states/globals/games');
 const { clients } = require('./lib/models/states/globals/clients');
 
 const app = express();
@@ -14,21 +14,23 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const PORT = 3000;
 
-const host = '0.0.0.0'; 
+// const host = '0.0.0.0'; 
+const host = 'localhost';
 
 
 let facts = [];
 
 const options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/btcmaax.jajabor.dev/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/btcmaax.jajabor.dev/fullchain.pem')
+//   key: fs.readFileSync('/etc/letsencrypt/live/btcmaax.jajabor.dev/privkey.pem'),
+//   cert: fs.readFileSync('/etc/letsencrypt/live/btcmaax.jajabor.dev/fullchain.pem')
 }
 // Create an HTTPS server
 const server = https.createServer(options, app);
 
 server.listen(PORT, host, () => {
-  console.log(`Facts Events service listening at http://${host}:${PORT}`);
+  console.log(`Facts Events service listening at https://${host}:${PORT}`);
 });
+
 
 
 

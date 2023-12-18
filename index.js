@@ -14,7 +14,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const PORT = 3000;
 
-const host = 'localhost';
+// const host = 'localhost';
+const host = '0.0.0.0'; 
 
 
 let facts = [];
@@ -25,16 +26,16 @@ app.listen(PORT, host, () => {
 
 
 
-setInterval(() => {
-  console.log('interval called')
-  Object.keys(organizedGames).forEach((game) => {
-    organizedGames[game]['min1'].streamEvent()
-    organizedGames[game]['min3'].streamEvent()
-    organizedGames[game]['min5'].streamEvent()
-    organizedGames[game]['min10'].streamEvent()
-  })
+// setInterval(() => {
+//   console.log('interval called')
+//   Object.keys(organizedGames).forEach((game) => {
+//     organizedGames[game]['min1'].streamEvent()
+//     organizedGames[game]['min3'].streamEvent()
+//     organizedGames[game]['min5'].streamEvent()
+//     organizedGames[game]['min10'].streamEvent()
+//   })
 
-}, 1000 * 1);
+// }, 1000 * 1);
 
 ////for crash
 let intervalId;
